@@ -1,0 +1,10 @@
+{
+  "name": "cypress-tests",
+  "private": true,
+  "type": "commonjs",
+  "eslintConfig": {
+    "extends": [
+      "plugin:cypress/recommended"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "plugins": ["cypress", "jest"],
+  "rules": {
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error",
+    "cypress/no-pause": "error",
+    "react/react-in-jsx-scope": "on",
+    "react/jsx-uses-react": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "env": {
+    "cypress/globals": true
+  },
+  "extends": ["plugin:testing-library/react", "plugin:cypress/recommended"]
+}
