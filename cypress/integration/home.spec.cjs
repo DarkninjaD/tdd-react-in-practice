@@ -14,4 +14,25 @@ describe("Home page", () => {
 
     cy.get("form").findByRole("button").should("exist");
   });
+  it("contains a form with fields 'Recipe Name' and 'Recipe Instructions' after clicking the 'Add Recipe' button", () => {
+    cy.findByRole("button").click();
+    cy.findByRole("textbox", { name: /Recipe name/i }).should("exist");
+    cy.findByRole("textbox", { name: /instructions/i }).should("exist");
+  });
+
+  it("displays a recipe name under the 'My Recipes' heading after it has been added through the 'Add Recipe' form", () => {
+    const recipeName = "Tofu Scramble Tacos";
+    cy.findByRole("button").click();
+    cy.findByRole("textbox", { name: /Recipe name/i }).type(recipeName);
+    cy.findByRole("textbox", { name: /instructions/i }).type(
+      "1. heat a skillet on medium with a dollop of coconut oil {enter} 2. warm flour tortillas"
+    );
+
+    return cy
+      .findByRole("button")
+      .click()
+      .then(() => {
+        cy.findByRole("listitem", /tofu scramble tacos/i).should("exist");
+      });
+  });
 });

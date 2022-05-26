@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import { NewRecipeForm } from "./components/NewRecipeForm/NewRecipeForm";
+import { RecipeList } from "./components/RecipeList/RecipeList";
+import { useAppContext } from "./context/AppContext";
 
 function App() {
+  const { state } = useAppContext();
   const [isAddRecipeFormDisplayed, setIsAddRecipeFormDisplayed] =
     useState(false);
   return (
@@ -16,11 +19,14 @@ function App() {
             id="add-recipe"
             onClick={() => setIsAddRecipeFormDisplayed(true)}
           >
-            {" "}
-            Add Recipe{" "}
+            Add Recipe
           </button>
         )}
-        <p>There are no recipes to list.</p>
+        {state.recipeList.length === 0 ? (
+          <p>There are no recipes to list.</p>
+        ) : (
+          <RecipeList />
+        )}
       </div>
     </div>
   );
