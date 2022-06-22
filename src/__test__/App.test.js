@@ -3,7 +3,6 @@ import React from "react";
 import { render, screen } from "../util/test-utils";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
-import { AppProvider } from "../context/AppContext";
 
 test("Add recipe button toggles visibility of a form on the page", async () => {
   render(<App />);
